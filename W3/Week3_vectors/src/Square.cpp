@@ -1,4 +1,4 @@
-#include "square.hpp"
+#include "Square.h"
 
 // --------------------------------------------------------
 void Square::setup(float posX, float posY, float width, float height){
@@ -38,7 +38,7 @@ void Square::update(){
     }
     else if (x < 0){
         // bounce off left edge
-        
+
         x = 0;
         dirX = dirX * -1;
     }
@@ -46,17 +46,17 @@ void Square::update(){
     
     if(y > ofGetHeight()){
         // bounce bottom edge
-        
+
         y = ofGetHeight();
         dirY = dirY * -1;
     }
     else if (y < 0){
         // or bounce top edge
-        
+
         y = 0;
         dirY = dirY * -1;
     }
-    
+
 }
 
 // --------------------------------------------------------
@@ -65,4 +65,10 @@ void Square::draw(){
     // draw a simple rectangle on screen
 }
 
-//
+// --------------------------------------------------------
+float Square::getCenterX(){
+    return x + (w * 0.5);   // origin plus half the width
+}
+float Square::getCenterY(){
+    return y + (h * 0.5);
+}
