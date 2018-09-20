@@ -1,45 +1,64 @@
 #include "ofApp.h"
 
+class Particle {
+public:
+    ofPoint pos;
+    ofPoint vel;
+    ofColor color;
+    float radius;
+    float born;
+};
+
+vector<Particle> particles;
+
 //--------------------------------------------------------------
 void ofApp::setup(){
-    
-    ofBackground(0);
+    ofSetWindowShape(1024, 768);
+    ofSetWindowTitle("Bouncing");
+    ofSetFrameRate(30);
+    ofBackground(255, 100, 188);
+    ofEnableSmoothing();
     ofSetCircleResolution(100);
     
-    gravity = glm::vec2(0,0);             // start with no gravity
-    
-    for (int i=0; i<numBalls; i++){                 // numBalls defined in ofApp.h
-        
-        float radius = ofMap(i, 0, numBalls, 50, 5);
-        float bounce = ofMap(radius, 5, 50, 0.9, 0.3);    // assign a bounciness factor (0-1 max range)
-        
-        balls[i].setup(radius, bounce);                    // initialize
-    }
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
-    // mouse position alters gravity / wind
-    gravity.x = ofMap(ofGetMouseX(), 0, ofGetWidth(), -.3, .3);
-    gravity.y = ofMap(ofGetMouseY(), 0, ofGetHeight(), -.3, .3);
-    
-    for (int i=0; i<numBalls; i++){
-        balls[i].update(gravity);
+    for(int i=0; i<particles.size(); i++)
+    {
+        particles[i].pos += particles[i].vel;
+        
+        // bounce off walls
+        if(particles[i].pos.x > ofGetWidth()-particles[i].radius) {
+            particles[i].pos.x = ofGetWidth()-particles[i].radius;
+            particles[i].vel.x *= -1;
+        }
+        
+        if(particles[i].pos.y > ofGetHeight()-particles[i].radius) {
+            particles[i].pos.y = ofGetHeight()-particles[i].radius;
+            particles[i].vel.y *= -1;
+        }
+        
+        
+        float age = ofGetElapsedTimef() - particles[i].born;
+        particles[i].color.a = ofMap(age, 0, 5, 250, 0);
+        
+        if(particles[i].color.a < 50)
+        {
+            particles.erase( particles.begin() + i );
+        }
     }
-    
 }
+
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
-    for (int i=0; i<numBalls; i++){
-        balls[i].draw();
+    for(int i=0; i<particles.size(); i++)
+    {
+        ofSetColor(particles[i].color);
+        ofDrawCircle(particles[i].pos, particles[i].radius);
     }
     
-    // draw some info on screen
-    string gravityInfo = "'gravity' force (x,y): " + ofToString(gravity, 2);
-    ofDrawBitmapString(gravityInfo, 20, 20);
     
 }
 
@@ -58,6 +77,8 @@ void ofApp::mouseMoved(int x, int y ){
     
 }
 
+
+
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
     
@@ -65,7 +86,13 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    
+    Particle p;
+    p.radius = ofRandom(10, 20);
+    p.born = ofGetElapsedTimef();
+    p.pos = ofPoint(x, y);
+    p.vel = ofPoint(ofRandom(-10, 10), ofRandom(-10, 10));
+    p.color = ofColor::fromHsb(ofRandom(255), 200, 200);
+    particles.push_back(p);
 }
 
 //--------------------------------------------------------------
@@ -75,6 +102,7 @@ void ofApp::mouseReleased(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseEntered(int x, int y){
+   
     
 }
 
@@ -97,4 +125,3 @@ void ofApp::gotMessage(ofMessage msg){
 void ofApp::dragEvent(ofDragInfo dragInfo){
     
 }
-

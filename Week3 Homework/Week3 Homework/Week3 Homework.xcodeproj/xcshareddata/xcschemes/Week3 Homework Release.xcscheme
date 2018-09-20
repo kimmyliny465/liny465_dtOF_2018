@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-               BuildableName = "Week 3 homework.app"
-               BlueprintName = "Week 3 homework"
-               ReferencedContainer = "container:Week 3 homework.xcodeproj">
+               BuildableName = "Week3 Homework.app"
+               BlueprintName = "Week3 Homework"
+               ReferencedContainer = "container:Week3 Homework.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "Week 3 homework.app"
-            BlueprintName = "Week 3 homework"
-            ReferencedContainer = "container:Week 3 homework.xcodeproj">
+            BuildableName = "Week3 Homework.app"
+            BlueprintName = "Week3 Homework"
+            ReferencedContainer = "container:Week3 Homework.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "Week 3 homework.app"
-            BlueprintName = "Week 3 homework"
-            ReferencedContainer = "container:Week 3 homework.xcodeproj">
+            BuildableName = "Week3 Homework.app"
+            BlueprintName = "Week3 Homework"
+            ReferencedContainer = "container:Week3 Homework.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "Week 3 homework.app"
-            BlueprintName = "Week 3 homework"
-            ReferencedContainer = "container:Week 3 homework.xcodeproj">
+            BuildableName = "Week3 Homework.app"
+            BlueprintName = "Week3 Homework"
+            ReferencedContainer = "container:Week3 Homework.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
