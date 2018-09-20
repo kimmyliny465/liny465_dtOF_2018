@@ -21,4 +21,8 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+    glm::vec2 pos;
+    glm::vec2 vel;
+    glm::vec2 acc;
+    
 };
