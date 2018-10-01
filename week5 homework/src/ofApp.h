@@ -3,9 +3,7 @@
 #include "ofMain.h"
 
 class ofApp : public ofBaseApp{
-private:
-    float rad;
-    float posX, posY;
+
     
 public:
     void setup();
@@ -24,6 +22,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+   int x,y;
    
     
 };
