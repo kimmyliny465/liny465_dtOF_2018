@@ -22,7 +22,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-   int x,y;
-   
+    vector<ofPoint> leaf;
+    vector<int> posX;
     
 };
