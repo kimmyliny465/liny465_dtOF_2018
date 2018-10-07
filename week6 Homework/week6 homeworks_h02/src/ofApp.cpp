@@ -1,97 +1,106 @@
 #include "ofApp.h"
 
+//--------------------------------------------------------------
 void ofApp::setup(){
-    ofSetWindowShape(1000,768);
-    ofBackground(180, 163, 107);
-    for(int i = 0; i < 1000; i++){
-        int x = ofRandom(ofGetWindowWidth());
-        int y = ofRandom(ofGetWindowHeight());
-        posX.push_back(x);
-        ofPoint p = ofPoint(x,y);
-        snow.push_back(p);
-    }
-}
-void ofApp::update(){
-    
-        for(int i = 0; i < snow.size(); i++){
-            if(snow[i].y<ofGetWindowHeight()){
-                snow[i].y += ofRandom(1,4);
-//                snow[i].x = 2 * ofMap(ofNoise((ofGetFrameNum()+posX[i])/100.0),0,1,0,ofGetWindowWidth())-ofGetWindowWidth()/2.2;
-            }
-        }
-    
-}
-void ofApp::draw(){
-    for(int i = 0; i < snow.size(); i++){
-        ofDrawEllipse(snow[i], 5, 5);
-    }
-   
+    ofSetWindowShape(1024,768);
 }
 
+void ofApp::update(){
+    
+}
+
+void ofApp::draw(){
+    ofBackground(255);
+    ofTranslate(ofGetWidth()/2,ofGetHeight()/2);
+    recursion(800,0);
+}
+
+void ofApp::recursion(float r,int num){
+    if(r > 10){
+        if(r > 50){
+            ofNoFill();
+            ofSetColor(0);
+        }else{
+            ofFill();
+            ofSetColor(0);
+        }
+        float ratio = mouseX/(float)ofGetWidth();
+        if(ratio > 0.2){
+            ratio = 0.2;
+        }
+        r = r * ratio;
+        num ++;
+        ofSetRectMode(OF_RECTMODE_CENTER);
+        ofDrawCircle(0, 0, r);
+        
+     
+        ofPushMatrix();
+        ofRotate(ofGetElapsedTimef() * num * 10);
+        ofTranslate(-r,-r);
+        recursion(r,num);
+        ofPopMatrix();
+        
+        ofPushMatrix();
+        ofRotate(ofGetElapsedTimef() * num * 10);
+        ofTranslate(-r,r);
+        recursion(r,num);
+        ofPopMatrix();
+
+    }
+}
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if (key == 't'){
-    ofSetColor(ofColor::fromHsb(int(ofGetElapsedTimef() * 10) % 255,255,255));
-        ; // do sth
-        for(int i = 0; i < snow.size(); i++){
-            int x = ofRandom(ofGetWindowWidth());
-            int y = ofRandom(ofGetWindowHeight());
-            posX[i] = x;
-            snow[i].set(x,y);
-        }
-    }
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-    
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    
+   
+  
+
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseEntered(int x, int y){
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseExited(int x, int y){
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){
-    
+
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){
-    
+void ofApp::dragEvent(ofDragInfo dragInfo){ 
+
 }
-
-
