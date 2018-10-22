@@ -84,7 +84,9 @@ public:
         if (posL.y <= ofGetWindowHeight()/2){
             for(int i=0; i < 500;  i++) {
                 ofSetColor(colE);
+                if(ofDist(posE[i].x,posE[i].y,posL.x,posL.y) > 80){
                 ofDrawCircle(posE[i], radE[i]);
+                }
             }
         }
         
