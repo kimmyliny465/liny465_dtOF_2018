@@ -4,7 +4,7 @@
 void ofApp::setup(){
     
     ofSetWindowTitle("jellyfish");
-    ofSetWindowShape(800, 375);
+    ofSetWindowShape(1680, 1050);
     ofSetFrameRate(100);
     ofBackground(255, 255, 255);
     ofEnableSmoothing();
@@ -43,18 +43,21 @@ void ofApp::update(){
             myjellyfish[i].free();
         }
     }
+   
+    
 }
-
 
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    bgImage.draw(0,0, 800, 375);
+    bgImage.draw(0,0, 1680, 1050);
     lightImage.draw(mouse.x-180, mouse.y-200);
     for(int i=0; i<myjellyfish.size(); i++)
     {
         myjellyfish[i].draw();
     }
+  
+
     
 }
 

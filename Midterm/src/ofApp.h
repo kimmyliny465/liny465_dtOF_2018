@@ -30,4 +30,7 @@ class ofApp : public ofBaseApp{
     ofPoint mouse;
     float preX;
     float preY;
+    
+   
+    
 };
