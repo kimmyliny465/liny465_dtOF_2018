@@ -23,11 +23,13 @@ public:
     void update(ofPoint attractor, vector<jellyfish>& jellyfish);
     void canvas();
     void draw();
+    void free();
     
     ofImage img;
     ofPoint pos;
     ofPoint lastPos;
     ofPoint vel;
+    ofPoint original;
     
     float angle;
     float friction = 0.9;

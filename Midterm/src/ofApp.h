@@ -9,6 +9,7 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
+        bool positionChanged();
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -23,7 +24,10 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
     ofImage jellyfishImage;
+    ofImage bgImage;
+    ofImage lightImage;
     vector<jellyfish> myjellyfish;
     ofPoint mouse;
-		
+    float preX;
+    float preY;
 };
