@@ -26,6 +26,8 @@ class ofApp : public ofBaseApp{
     ofImage jellyfishImage;
     ofImage bgImage;
     ofImage lightImage;
+    ofImage paintImage;
+    
     vector<jellyfish> myjellyfish;
     ofPoint mouse;
     float preX;

@@ -24,4 +24,5 @@ public:
     int camH;
     
     ofxMotionDetector    motionDetector;
+    
 };
