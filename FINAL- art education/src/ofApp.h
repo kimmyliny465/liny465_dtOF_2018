@@ -4,7 +4,7 @@
 
 #include "ofxCv.h"  // compatibility layer with OF
 #include "ofxOpenCv.h" // includes OpenCv library
-#include "ofxGui.h"
+
 
 using namespace cv;
 using namespace ofxCv;
@@ -28,27 +28,27 @@ public:
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
+    void home();
+    void play();
+    void max();
+    void content();
     
-//    ofImage painting;
-//    ofVideoGrabber cam;
-    // images, of video player etc...
     
-    ofxCv::ObjectFinder finder; // use decirbe files here, generic object finder // will use this as a face tracker (mayuse full body detector)
     
-    //    ofConePrimitive cone;
+    ofxCv::ObjectFinder finder;
+    
     ofImage bgImage;
     ofImage dadaImage;
+    ofImage coverImage;
+    ofImage maxImage;
+    ofImage contentImage;
+    
     ofVideoGrabber cam;
+    int a = 0;
     
-    
-    ofxCv::ContourFinder contourFinder;
-    
-    ofxPanel gui;
-    ofParameter<float> minArea, maxArea, threshold;
-    ofParameter<bool> holes;
     
     ofPolyline line;
- 
+    
     
     
     
