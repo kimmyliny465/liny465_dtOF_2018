@@ -53,10 +53,12 @@ void ofApp::home(){
 }
 
 void ofApp::max(){
+ 
     maxImage.draw(0,0);
 }
 
 void ofApp::content(){
+   
     contentImage.draw(0,0);
 }
 
@@ -83,14 +85,10 @@ void ofApp::play(){
             ofRectangle face = finder.getObjectSmoothed(i);
             
             
-            
-            
-//            ofPushStyle();
-            
-            // color by face ID
+            // color
             int faceID  = finder.getLabel(i);
             float hue   = (faceID * 55) % 255;
-            ofSetColor( ofColor::fromHsb(hue, 255,255));
+//            ofSetColor( ofColor::fromHsb(hue, 255,255));
             
             // draw face box
             
@@ -105,7 +103,7 @@ void ofApp::play(){
             dadaImage.draw(-130,-105,260,100);
             ofPopMatrix();
             
-}
+        }
 }
 
 

@@ -50,28 +50,28 @@ void ofApp::draw(){
     
     bg.draw(0,0, 640, 720);
     
-    for (int i=0; i<finder.size(); i++){
-        
-        ofImage face = finder.getObjectSmoothed(i);
-        // or finder.getObject(i) <-- raw face postion
-        
-        ofPushStyle();
-        float hue = ofMap(i, 0, finder.size()-1, 0, 255);
-        ofSetColor(ofColor::fromHsb(hue,255,255));
-        ofDrawRectangle(face);
-        ofPopStyle();
-        
-       
-        
-        ofPushMatrix();
-        ofTranslate(face.getLeft(),face.getBottom()+ 20, 0);
-        
-        
-        stringstream ss;
-        ss << "face:" << finder.getLabel(i);
-        ofDrawBitmapStringHighlight(ss.str(),0,0);
-        
-        ofPopMatrix();
+//    for (int i=0; i<finder.size(); i++){
+//        
+//        
+//        // or finder.getObject(i) <-- raw face postion
+//        
+//        ofPushStyle();
+//        float hue = ofMap(i, 0, finder.size()-1, 0, 255);
+//        ofSetColor(ofColor::fromHsb(hue,255,255));
+//        ofDrawRectangle(face);
+//        ofPopStyle();
+//        
+//       
+//        
+//        ofPushMatrix();
+//        ofTranslate(face.getLeft(),face.getBottom()+ 20, 0);
+//        
+//        
+//        stringstream ss;
+//        ss << "face:" << finder.getLabel(i);
+//        ofDrawBitmapStringHighlight(ss.str(),0,0);
+//        
+//        ofPopMatrix();
         
         
         
